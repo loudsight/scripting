@@ -26,6 +26,11 @@ alias pipupgrade='$WORK_ROOT/programs/python/python38/python -m pip install --up
 
 function jupstart() {
     cd "$PROJECT_ROOT" || false
-    . "$WORK_ROOT/programs/python/venvs/working/Scripts/activate"
+
+    if test -f "$WORK_ROOT/programs/python/venvs/working/Scripts"; then
+    . "${WORK_ROOT}/programs/python/venvs/working/Scripts/activate"
+    else
+    . "${WORK_ROOT}/programs/python/venvs/working/bin/activate"
+    fi
     jupyter notebook
 } 
