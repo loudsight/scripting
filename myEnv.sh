@@ -20,17 +20,21 @@ export MAVEN_OPTS="${JAVA_OPTS}"
 
 alias pushmaster='git push origin HEAD:refs/for/master'
 alias pushwip='git push origin HEAD:refs/for/wip'
-alias pyworking=". \$WORK_ROOT/programs/python/venvs/working/Scripts/activate"
+
+function activate_pyworking() {
+    if test -d "$WORK_ROOT/programs/python/venvs/working/Scripts"; then
+      . "${WORK_ROOT}/programs/python/venvs/working/Scripts/activate"
+    else
+      . "${WORK_ROOT}/programs/python/venvs/working/bin/activate"
+    fi
+}
+
+alias pyworking=activate_pyworking
 
 alias pipupgrade='$WORK_ROOT/programs/python/python38/python -m pip install --upgrade pip'
 
 function jupstart() {
     cd "$PROJECT_ROOT" || false
-
-    if test -f "$WORK_ROOT/programs/python/venvs/working/Scripts"; then
-    . "${WORK_ROOT}/programs/python/venvs/working/Scripts/activate"
-    else
-    . "${WORK_ROOT}/programs/python/venvs/working/bin/activate"
-    fi
+    activate_pyworking
     jupyter notebook
-} 
+}
