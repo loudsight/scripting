@@ -1,11 +1,12 @@
 #!/bin/bash
 
 export WORK_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+echo "$WORK_ROOT"
 export DISPLAY=localhost:0.0
 export JAVA_HOME=$WORK_ROOT/programs/java/latest/
 export NODE=$WORK_ROOT/programs/node/latest/
 export PYTHONPATH=$WORK_ROOT/programs/python/python38
-export M2_HOME=$WORK_ROOT/programs/maven/
+export M2_HOME=$WORK_ROOT/programs/maven/latest
 export PROJECT_ROOT=$WORK_ROOT/code/all/
 
 export PATH=$M2_HOME/bin:$JAVA_HOME/bin:$NODE/bin:$PYTHONPATH:$PYTHONPATH/Scripts:$PYTHONPATH/Lib:$YARN_HOME/bin:$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin
