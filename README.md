@@ -1,1 +1,1 @@
-# scriptlets
+# scripting
