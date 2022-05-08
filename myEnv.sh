@@ -7,7 +7,7 @@ export JAVA_HOME=$WORK_ROOT/programs/java/latest/
 export NODE=$WORK_ROOT/programs/node/latest/
 export PYTHONPATH=$WORK_ROOT/programs/python/python38
 export M2_HOME=$WORK_ROOT/programs/maven/latest
-export PROJECT_ROOT=$WORK_ROOT/code/all/
+export PROJECT_ROOT=$WORK_ROOT/code/synergisms/
 
 export PATH=$M2_HOME/bin:$JAVA_HOME/bin:$NODE/bin:$PYTHONPATH:$PYTHONPATH/Scripts:$PYTHONPATH/Lib:$YARN_HOME/bin:$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin
 export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.util=ALL-UNNAMED"
