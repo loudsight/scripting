@@ -10,13 +10,14 @@ export M2_HOME=$WORK_ROOT/programs/maven/latest
 export PROJECT_ROOT=$WORK_ROOT/code/synergisms/
 
 export PATH=$M2_HOME/bin:$JAVA_HOME/bin:$NODE/bin:$PYTHONPATH:$PYTHONPATH/Scripts:$PYTHONPATH/Lib:$YARN_HOME/bin:$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin
-export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.util=ALL-UNNAMED"
-export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.lang.reflect=ALL-UNNAMED"
-export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.text=ALL-UNNAMED"
-export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.util=ALL-UNNAMED"
-export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.lang.reflect=ALL-UNNAMED"
-export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.text=ALL-UNNAMED"
-export JAVA_OPTS="${JAVA_OPTS} --add-opens java.desktop/java.awt.font=ALL-UNNAMED"
+export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.util=ALL-UNNAMED \
+--add-opens java.base/java.lang.reflect=ALL-UNNAMED \
+--add-opens java.base/java.text=ALL-UNNAMED \
+--add-opens java.base/java.util=ALL-UNNAMED \
+--add-opens java.base/java.lang.reflect=ALL-UNNAMED \
+--add-opens java.base/java.text=ALL-UNNAMED \
+--add-opens java.desktop/java.awt.font=ALL-UNNAMED \
+-DWORK_ROOT=$WORK_ROOT"
 export MAVEN_OPTS="${JAVA_OPTS}"
 
 alias pushmaster='git push origin HEAD:refs/for/master'
