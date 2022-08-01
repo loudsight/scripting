@@ -1,8 +1,5 @@
 #!/bin/bash
 
-export NEO4J_UID=`id -u neo4j`
-export NEO4J_GID=`id -g neo4j`
-
 export WORK_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 echo "$WORK_ROOT"
 export DISPLAY=localhost:0.0
