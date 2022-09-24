@@ -19,6 +19,7 @@ export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.util=ALL-UNNAMED \
 --add-opens java.desktop/java.awt.font=ALL-UNNAMED \
 -DWORK_ROOT=$WORK_ROOT"
 export MAVEN_OPTS="${JAVA_OPTS}"
+export PYTHONPATH=$PYTHONPATH:$WORK_ROOT/code/current/automation/pyscripting/
 
 alias pushmaster='git push origin HEAD:refs/for/master'
 alias pushwip='git push origin HEAD:refs/for/wip'
