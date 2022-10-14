@@ -42,3 +42,16 @@ function jupstart() {
     activate_pyworking
     jupyter notebook
 }
+
+function in_all_directories() {
+  if [ "$#" -ne 3 ]; then
+      echo "3 parameters are required"
+  fi
+
+  while IFS= read -r -d '' file
+  do
+      exec_it=$3
+      exec_it=${exec_it//\$it/$file}
+      eval "$exec_it"
+  done <   <(find "$1" -name "$2" -print0)
+}
