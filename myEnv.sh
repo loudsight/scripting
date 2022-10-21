@@ -2,6 +2,7 @@
 
 export WORK_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 echo "$WORK_ROOT"
+
 export DISPLAY=localhost:0.0
 export JAVA_HOME=$WORK_ROOT/programs/java/current/
 export NODE=$WORK_ROOT/programs/nodejs/current/
@@ -55,3 +56,5 @@ function in_all_directories() {
       eval "$exec_it"
   done <   <(find "$1" -name "$2" -print0)
 }
+
+
