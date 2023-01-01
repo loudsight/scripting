@@ -7,10 +7,11 @@ export JAVA_HOME=$WORK_ROOT/programs/java/current/
 export NODE=$WORK_ROOT/programs/nodejs/current/
 export PYTHONPATH=$WORK_ROOT/programs/python/current
 export M2_HOME=$WORK_ROOT/programs/maven/current
+export GRADLE_HOME=$WORK_ROOT/programs/gradle/current
 export PROJECT_ROOT=$WORK_ROOT/code/synergisms/
 export CMAKE="/C/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/"
 
-export PATH=$M2_HOME/bin:$JAVA_HOME/bin:$NODE/bin:$PYTHONPATH:$PYTHONPATH/Scripts:$PYTHONPATH/Lib:$YARN_HOME/bin:$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin:$CMAKE/bin
+export PATH=$M2_HOME/bin:$JAVA_HOME/bin:$NODE/bin:$PYTHONPATH:$PYTHONPATH/Scripts:$PYTHONPATH/Lib:$YARN_HOME/bin:$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin:$CMAKE/bin:$GRADLE_HOME/bin
 export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.util=ALL-UNNAMED \
 --add-opens java.base/java.lang.reflect=ALL-UNNAMED \
 --add-opens java.base/java.text=ALL-UNNAMED \
