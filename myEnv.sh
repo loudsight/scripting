@@ -3,15 +3,34 @@
 export WORK_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 echo "$WORK_ROOT"
 export DISPLAY=localhost:0.0
-export JAVA_HOME=$WORK_ROOT/programs/java/current/
-export NODE=$WORK_ROOT/programs/nodejs/current/
-export PYTHONPATH=$WORK_ROOT/programs/python/current
-export M2_HOME=$WORK_ROOT/programs/maven/current
-export GRADLE_HOME=$WORK_ROOT/programs/gradle/current
+
+PROGRAMS_ROOT=$WORK_ROOT/programs
+
+if [[ $(uname) == Linux* ]];then
+  PROGRAMS_ROOT=$PROGRAMS_ROOT/nix
+  echo "Running on nix-like environment will use programs in $PROGRAMS_ROOT";
+fi
+
+export PROGRAMS_ROOT
+
+export JAVA_HOME=$PROGRAMS_ROOT/java/current/
+export NODE=$PROGRAMS_ROOT/nodejs/current/
+export PYTHONPATH=$PROGRAMS_ROOT/python/current
+export M2_HOME=$PROGRAMS_ROOT/maven/current
+export GRADLE_HOME=$PROGRAMS_ROOT/gradle/current
 export PROJECT_ROOT=$WORK_ROOT/code/synergisms/
 export CMAKE="/C/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/"
 
-export PATH=$M2_HOME/bin:$JAVA_HOME/bin:$NODE/bin:$PYTHONPATH:$PYTHONPATH/Scripts:$PYTHONPATH/Lib:$YARN_HOME/bin:$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin:$CMAKE/bin:$GRADLE_HOME/bin
+PATH=$M2_HOME/bin:$JAVA_HOME/bin:$NODE/bin:$PYTHONPATH:$PYTHONPATH/Scripts:$PYTHONPATH/Lib:$YARN_HOME/bin
+PATH=$PATH:$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin:$CMAKE/bin:$GRADLE_HOME/bin
+PATH=$PATH:$PROGRAMS_ROOT/rust/rustup/toolchains/stable-$(uname -m)-unknown-linux-gnu/bin
+export PATH
+
+source "$PROGRAMS_ROOT/rust/cargo/env"
+export RUSTUP_HOME=$PROGRAMS_ROOT/rust/rustup
+export CARGO_HOME=$PROGRAMS_ROOT/rust/cargo
+
+
 export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.util=ALL-UNNAMED \
 --add-opens java.base/java.lang.reflect=ALL-UNNAMED \
 --add-opens java.base/java.text=ALL-UNNAMED \
@@ -27,7 +46,7 @@ alias pushmaster='git push origin HEAD:refs/for/master'
 alias pushwip='git push origin HEAD:refs/for/wip'
 
 function activate_pyworking() {
-    if test -d "$WORK_ROOT/programs/python/venv/working/Scripts"; then
+    if test -d "$PROGRAMS_ROOT/python/venv/working/Scripts"; then
       . "${WORK_ROOT}/programs/python/venv/working/Scripts/activate"
     else
       . "${WORK_ROOT}/programs/python/venv/working/bin/activate"
@@ -36,7 +55,7 @@ function activate_pyworking() {
 
 alias pyworking=activate_pyworking
 
-alias pipupgrade='$WORK_ROOT/programs/python/python38/python -m pip install --upgrade pip'
+alias pipupgrade='$PROGRAMS_ROOT/python/python38/python -m pip install --upgrade pip'
 
 function jupstart() {
     cd "$PROJECT_ROOT" || false
