@@ -75,3 +75,7 @@ function in_all_directories() {
       eval "$exec_it"
   done <   <(find "$1" -name "$2" -print0)
 }
+
+function log() {
+    echo "$(date) $1"
+}
