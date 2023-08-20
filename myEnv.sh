@@ -57,6 +57,10 @@ alias pyworking=activate_pyworking
 
 alias pipupgrade='$PROGRAMS_ROOT/python/python38/python -m pip install --upgrade pip'
 
+function wget2() {
+  wget --header="Accept: text/html" --user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:21.0) Gecko/20100101 Firefox/21.0"
+}
+
 function jupstart() {
     cd "$PROJECT_ROOT" || false
     activate_pyworking
