@@ -18,12 +18,12 @@ export NODE=$PROGRAMS_ROOT/nodejs/current/
 export PYTHONPATH=$PROGRAMS_ROOT/python/current
 export M2_HOME=$PROGRAMS_ROOT/maven/current
 export GRADLE_HOME=$PROGRAMS_ROOT/gradle/current
-export PODMAN_HOME=$PROGRAMS_ROOT/podman/current
 export PROJECT_ROOT=$WORK_ROOT/code/synergisms/
 #export CMAKE="/C/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/"
+alias docker=podman
 
 PATH=$M2_HOME/bin:$JAVA_HOME/bin:$NODE/bin:$PYTHONPATH:$PYTHONPATH/Scripts:$PYTHONPATH/Lib:$YARN_HOME/bin:$PATH
-PATH=$PODMAN_HOME/usr/bin:$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin:$CMAKE/bin:$GRADLE_HOME/bin:$PATH
+PATH=$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin:$CMAKE/bin:$GRADLE_HOME/bin:$PATH
 #PATH=$PATH:$PROGRAMS_ROOT/rust/rustup/toolchains/stable-$(uname -m)-unknown-linux-gnu/bin:$PATH
 export PATH
 
@@ -39,6 +39,17 @@ export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.util=ALL-UNNAMED \
 --add-opens java.base/java.lang.reflect=ALL-UNNAMED \
 --add-opens java.base/java.text=ALL-UNNAMED \
 --add-opens java.desktop/java.awt.font=ALL-UNNAMED \
+--add-opens jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED \
+--add-exports jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED \
+--add-exports jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED \
+--add-exports jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED \
+--add-exports jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED \
+--add-exports jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED \
+--add-exports jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED \
+--add-exports jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED \
+--add-exports jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED \
+--add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED \
+--add-exports jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED"
 -DWORK_ROOT=$WORK_ROOT"
 export MAVEN_OPTS="${JAVA_OPTS}"
 export PYTHONPATH=$PYTHONPATH:$WORK_ROOT/code/current/automation/pyscripting/
@@ -50,7 +61,7 @@ function activate_pyworking() {
     if test -d "$PROGRAMS_ROOT/python/venv/working/Scripts"; then
       . "${WORK_ROOT}/programs/python/venv/working/Scripts/activate"
     else
-      . "${WORK_ROOT}/programs/python/venv/working/bin/activate"
+      . "${WORK_ROOT}/programs/python/venvs/working/bin/activate"
     fi
 }
 
