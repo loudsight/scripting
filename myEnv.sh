@@ -49,7 +49,7 @@ export JAVA_OPTS="${JAVA_OPTS} --add-opens java.base/java.util=ALL-UNNAMED \
 --add-exports jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED \
 --add-exports jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED \
 --add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED \
---add-exports jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED"
+--add-exports jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED \
 -DWORK_ROOT=$WORK_ROOT"
 export MAVEN_OPTS="${JAVA_OPTS}"
 export PYTHONPATH=$PYTHONPATH:$WORK_ROOT/code/current/automation/pyscripting/
