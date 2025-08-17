@@ -20,7 +20,6 @@ export M2_HOME=$PROGRAMS_ROOT/maven/current
 export GRADLE_HOME=$PROGRAMS_ROOT/gradle/current
 export PROJECT_ROOT=$WORK_ROOT/code/synergisms/
 #export CMAKE="/C/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/"
-alias docker=podman
 
 PATH=$M2_HOME/bin:$JAVA_HOME/bin:$NODE/bin:$PYTHONPATH:$PYTHONPATH/Scripts:$PYTHONPATH/Lib:$YARN_HOME/bin:$PATH
 PATH=$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin:$CMAKE/bin:$GRADLE_HOME/bin:$PATH
