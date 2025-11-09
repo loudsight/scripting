@@ -20,6 +20,8 @@ export M2_HOME=$PROGRAMS_ROOT/maven/current
 export GROOVY_HOME=$PROGRAMS_ROOT/groovy/current
 export AUTOMATION_AGENT_HOME=$PROGRAMS_ROOT/automation-agent/current
 export PROJECT_ROOT=$WORK_ROOT/code/synergisms/
+export NEW_PROJECT_ROOT=$WORK_ROOT/code/primitives/primitives/
+
 
 PATH=$M2_HOME/bin:$JAVA_HOME/bin:$NODE/bin:$PYTHONPATH:$PYTHONPATH/Scripts:$PYTHONPATH/Lib:$YARN_HOME/bin:$PATH
 PATH=$CODEQL_HOME:$PROTOC_HOME/bin:$PATH:$PROJECT_ROOT/bin:$CMAKE/bin:$GROOVY_HOME/bin:$AUTOMATION_AGENT_HOME:$PATH
